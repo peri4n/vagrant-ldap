@@ -29,3 +29,6 @@
 
   - name: Install LDAP utils
     apt: name=ldap-utils
+
+  - name: Add test data
+    shell: ldapadd -x -v -f /vagrant/{{ inventory_hostname }}.ldif -H "ldap://localhost:389" -D "cn=admin,dc={{ inventory_hostname }},dc=datameer,dc=example" -w 1234
