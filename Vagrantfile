@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.define :eu do |server|
+  config.vm.define :eu, primary: true do |server|
       server.vm.box = "bento/ubuntu-16.04"
       server.vm.network :private_network, ip: "10.11.1.100"
       server.vm.network "forwarded_port", guest: 389, host: 3891
