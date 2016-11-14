@@ -7,7 +7,7 @@
     debconf: name=slapd question=slapd/dump_database vtype=string value="when needed"
 
   - name: Configure domain for OpenLDAP
-    debconf: name=slapd question=slapd/domain vtype=string value="{{ inventory_hostname }}.datameer.example"
+    debconf: name=slapd question=slapd/domain vtype=string value="{{ inventory_hostname }}.company.example"
 
   - name: Configure memory-mapped database as backend for OpenLDAP
     debconf: name=slapd question=slapd/backend vtype=string value=MDB
@@ -19,7 +19,7 @@
     debconf: name=slapd question=slapd/password2 vtype=string value=1234
 
   - name: Configure organization for OpenLDAP
-    debconf: name=slapd question=shared/organization vtype=string value=datameer
+    debconf: name=slapd question=shared/organization vtype=string value=company
 
   - name: Configure OpenLDAP to not allow LDAPv2
     debconf: name=slapd question=slapd/allow_ldap_v2 vtype=boolean value=false
@@ -31,4 +31,4 @@
     apt: name=ldap-utils
 
   - name: Add test data
-    shell: ldapadd -x -v -f /vagrant/{{ inventory_hostname }}.ldif -H "ldap://localhost:389" -D "cn=admin,dc={{ inventory_hostname }},dc=datameer,dc=example" -w 1234
+    shell: ldapadd -x -v -f /vagrant/{{ inventory_hostname }}.ldif -H "ldap://localhost:389" -D "cn=admin,dc={{ inventory_hostname }},dc=company,dc=example" -w 1234
