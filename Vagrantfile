@@ -12,22 +12,28 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.define :eu, primary: true do |server|
+  config.vm.define :eu1, primary: true do |server|
       server.vm.box = "bento/ubuntu-16.04"
       server.vm.network :private_network, ip: "10.11.1.100"
       server.vm.network "forwarded_port", guest: 389, host: 3891
   end
 
-  config.vm.define :apac do |server|
+  config.vm.define :eu2 do |server|
       server.vm.box = "bento/ubuntu-16.04"
       server.vm.network :private_network, ip: "10.11.1.101"
       server.vm.network "forwarded_port", guest: 389, host: 3892
   end
 
-  config.vm.define :us do |server|
+  config.vm.define :apac do |server|
       server.vm.box = "bento/ubuntu-16.04"
       server.vm.network :private_network, ip: "10.11.1.102"
       server.vm.network "forwarded_port", guest: 389, host: 3893
+  end
+
+  config.vm.define :us do |server|
+      server.vm.box = "bento/ubuntu-16.04"
+      server.vm.network :private_network, ip: "10.11.1.103"
+      server.vm.network "forwarded_port", guest: 389, host: 3894
   end
 
   # Disable automatic box update checking. If you disable this, then
