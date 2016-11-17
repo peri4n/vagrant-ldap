@@ -13,6 +13,8 @@ In case you get an error stating that Vagrant is not able to download bento/ubun
 
 `sudo rm -rf /opt/vagrant/embedded/bin/curl`
 
+Depending on the vagrant-box version you are downloading, you might have to upgrade to VirtualBox 5.1.6. There was a problem with version box v2.3.0 failing with VirtualBox below version 5.1.6
+
 ## Query the LDAP servers as admin
 
 You can query the EU server like:
