@@ -9,6 +9,10 @@ To fire up both LDAP servers, issue:
 
 `vagrant up`
 
+In case you get an error stating that Vagrant is not able to download bento/ubuntu-16.04, you have to remove the curl bundled with vagrant:
+
+`sudo rm -rf /opt/vagrant/embedded/bin/curl`
+
 ## Query the LDAP servers as admin
 
 You can query the EU server like:
