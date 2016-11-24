@@ -3,6 +3,12 @@
 This vagrant setup helped to develop against a complex LDAP setup. It simulates 4 LDAP servers which all contain region specific users and groups.
 The regions are: EU, US and APAC. The EU region is represented by two servers (eu1 and eu2). APAC and US have each 1 server associated to them.
 
+# Requirements
+
+* VirtualBox >= 5.1.6
+* vagrant 1.8.7
+* ansible >= 2.0.0.2
+
 # Usage
 
 To fire up both LDAP servers, issue:
