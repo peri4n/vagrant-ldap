@@ -9,6 +9,14 @@ The regions are: EU, US and APAC. The EU region is represented by two servers (e
 * vagrant 1.8.7
 * ansible >= 2.0.0.2
 
+# LDAP server configs
+
+* 4 LDAP server
+* locahost:3891
+* search base: dc=eu,dc=company,dc=example
+* login: admin,dc=eu,dc=company,dc=example
+* password: 1234
+
 # Usage
 
 To fire up both LDAP servers, issue:
