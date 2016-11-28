@@ -49,6 +49,7 @@ Depending on the vagrant-box version you are downloading, you might have to upgr
 You can query the EU server like:
 
 `ldapsearch -x -H ldap://localhost:3891 -b dc=eu,dc=company,dc=example -D cn=admin,dc=eu,dc=company,dc=example -w 1234`
+
 `ldapsearch -x -H ldap://localhost:3892 -b dc=eu,dc=company,dc=example -D cn=admin,dc=eu,dc=company,dc=example -w 1234`
 
 Note, the only difference between the users on these servers are the email adresses. Every username and group that is present on eu1 is also present in eu2.
@@ -56,6 +57,7 @@ Note, the only difference between the users on these servers are the email adres
 APAC and US are structured accordingly:
 
 `ldapsearch -x -H ldap://localhost:3893 -b dc=apac,dc=company,dc=example -D cn=admin,dc=apac,dc=company,dc=example -w 1234`
+
 `ldapsearch -x -H ldap://localhost:3894 -b dc=us,dc=company,dc=example -D cn=admin,dc=us,dc=company,dc=example -w 1234`
 
 ## Login as a regular user
