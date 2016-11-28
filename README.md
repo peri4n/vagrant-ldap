@@ -12,7 +12,7 @@ The regions are: EU, US and APAC. The EU region is represented by two servers (e
 # LDAP server configs
 
 * 4 LDAP server
-* user definition: objectClass=Inetorgperson
+  * user definition: objectClass=Inetorgperson
 * user name attribute: cn
 * locahost:3891
   * search base: dc=eu,dc=company,dc=example
