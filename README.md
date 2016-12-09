@@ -34,7 +34,7 @@ The regions are: EU, US and APAC. The EU region is represented by two servers (e
 
 # Usage
 
-To fire up both LDAP servers, issue:
+After you have installed all the required software you can start both LDAP servers by running:
 
 `vagrant up`
 
@@ -44,15 +44,13 @@ In case you get an error stating that Vagrant is not able to download bento/ubun
 
 Depending on the vagrant-box version you are downloading, you might have to upgrade to VirtualBox 5.1.6. There was a problem with version box v2.3.0 failing with VirtualBox below version 5.1.6
 
-## Query the LDAP servers as admin
+## Using the LDAP servers as admin
 
-You can query the EU server like:
+You can query the EU server as an admin with:
 
 `ldapsearch -x -H ldap://localhost:3891 -b dc=eu,dc=company,dc=example -D cn=admin,dc=eu,dc=company,dc=example -w 1234`
 
 `ldapsearch -x -H ldap://localhost:3892 -b dc=eu,dc=company,dc=example -D cn=admin,dc=eu,dc=company,dc=example -w 1234`
-
-Note, the only difference between the users on these servers are the email adresses. Every username and group that is present on eu1 is also present in eu2.
 
 APAC and US are structured accordingly:
 
@@ -62,9 +60,16 @@ APAC and US are structured accordingly:
 
 ## Login as a regular user
 
+The users on all 4 LDAP servers are prefixed with there region so that no two users have the same name on two different LDAP servers.
+
+The username of each user ends with a number. The characters preceeding the number denote the group this user is a member of. E.g. User US-ABA1 is member of the group US-ABA.
+The group US-ABA however, is itself member of US-AB, which is by itself member of US-A. I hope you get the idea. The user and group names directly give you the information about membership. 
+
 To login as one of the generated users you invoke:
 
-`ldapsearch -x -b dc=us,dc=company,dc=example -H ldap://localhost:3894 -D cn=A1,ou=user,dc=us,dc=company,dc=example -w A1 cn=A1`
+`ldapsearch -x -b dc=us,dc=company,dc=example -H ldap://localhost:3894 -D cn=US-A1,ou=user,dc=us,dc=company,dc=example -w A1 cn=A1`
+
+Each users password is equal to its username without the region prefix.
 
 # Future Plans
 
