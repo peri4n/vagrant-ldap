@@ -14,22 +14,41 @@ The regions are: EU, US and APAC. The EU region is represented by two servers (e
 * 4 LDAP server
   * user definition: objectClass=Inetorgperson
   * user name attribute: cn
-* locahost:3891
+* EU1:
+  * url: ldap://localhost:3891
   * search base: dc=eu,dc=company,dc=example
   * login: admin,dc=eu,dc=company,dc=example
   * password: 1234
-* locahost:3892
+* EU2:
+  * url: ldap://localhost:3892
   * search base: dc=eu,dc=company,dc=example
   * login: admin,dc=eu,dc=company,dc=example
   * password: 1234
-* locahost:3893
+* APAC:
+  * url: ldap://localhost:3893
   * search base: dc=apac,dc=company,dc=example
   * login: admin,dc=apac,dc=company,dc=example
   * password: 1234
-* locahost:3894
+* US:
+  * url: ldap://localhost:3894
   * search base: dc=us,dc=company,dc=example
   * login: admin,dc=us,dc=company,dc=example
   * password: 1234
+
+# Server statistics
+
+* EU1:
+  * users: 11715
+  * groups: 3905
+* EU2:
+  * users: 11715
+  * groups: 3905
+* APAC:
+  * users: 6138
+  * groups: 2046
+* US:
+  * users: 3330
+  * groups: 1110
 
 
 # Usage
@@ -63,7 +82,7 @@ APAC and US are structured accordingly:
 The users on all 4 LDAP servers are prefixed with there region so that no two users have the same name on two different LDAP servers.
 
 The username of each user ends with a number. The characters preceeding the number denote the group this user is a member of. E.g. User US-ABA1 is member of the group US-ABA.
-The group US-ABA however, is itself member of US-AB, which is by itself member of US-A. I hope you get the idea. The user and group names directly give you the information about membership. 
+The group US-ABA however, is itself member of US-AB, which is by itself member of US-A. I hope you get the idea. The user and group names directly give you the information about membership.
 
 To login as one of the generated users you invoke:
 
