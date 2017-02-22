@@ -36,6 +36,12 @@ Vagrant.configure("2") do |config|
       server.vm.network "forwarded_port", guest: 389, host: 3894
   end
 
+  config.vm.define :chaos do |server|
+      server.vm.box = "bento/ubuntu-16.04"
+      server.vm.network :private_network, ip: "10.11.1.104"
+      server.vm.network "forwarded_port", guest: 389, host: 3895
+  end
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.

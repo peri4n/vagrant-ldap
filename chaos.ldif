@@ -1,0 +1,43 @@
+dn: ou=user,dc=chaos,dc=company,dc=example
+objectClass: organizationalUnit
+ou: user
+
+dn: ou=groups,dc=chaos,dc=company,dc=example
+objectClass: organizationalUnit
+ou: groups
+
+dn: cn=test1,ou=user,dc=chaos,dc=company,dc=example
+objectClass: inetOrgPerson
+mail: test1@chaos.company.example
+userPassword:test1
+sn: test1
+
+dn: cn=test2,ou=user,dc=chaos,dc=company,dc=example
+objectClass: inetOrgPerson
+mail: test2@chaos.company.example
+userPassword:test2
+sn: test2
+
+dn: cn=test3,ou=user,dc=chaos,dc=company,dc=example
+objectClass: inetOrgPerson
+mail: test3@chaos.company.example
+userPassword:test3
+sn: test3
+
+dn: cn=group1,ou=groups,dc=chaos,dc=company,dc=example
+objectClass: groupOfNames
+cn: group1
+member: cn=test1,ou=user,dc=chaos,dc=company,dc=example
+
+dn: cn=group2,ou=groups,dc=chaos,dc=company,dc=example
+objectClass: groupOfNames
+cn: group2
+member: cn=test1,ou=user,dc=chaos,dc=company,dc=example
+member: cn=test2,ou=user,dc=chaos,dc=company,dc=example
+
+dn: cn=group3,ou=groups,dc=chaos,dc=company,dc=example
+objectClass: groupOfNames
+cn: group3
+member: cn=test1,ou=user,dc=chaos,dc=company,dc=example
+member: cn=test2,ou=user,dc=chaos,dc=company,dc=example
+member: cn=test3,ou=user,dc=chaos,dc=company,dc=example
